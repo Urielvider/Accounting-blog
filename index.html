@@ -1,140 +1,181 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מאמרים - בלוג הייטק</title>
+    <title>טק-אינסייט - בלוג הייטק מקצועי</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap');
+        
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            direction: rtl;
-            background: #f7f7f7;
+            font-family: 'Heebo', sans-serif;
+            background: linear-gradient(to bottom right, #f0f4ff, #e0e7ff);
+        }
+        
+        .logo {
+            background: linear-gradient(45deg, #4f46e5, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: #4f46e5;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        header {
-            background-color: #0073e6;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        .article-preview {
+            max-height: 300px;
+            overflow: hidden;
+            position: relative;
         }
 
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-
-        nav {
-            background-color: #005bb5;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            position: sticky;
-            top: 100px;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #ffc107;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 10px;
-        }
-
-        article {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        article:hover {
-            transform: scale(1.02);
-        }
-
-        article h2 {
-            color: #005bb5;
-            font-size: 1.8rem;
-            margin-top: 0;
-        }
-
-        article p {
-            color: #333;
-            line-height: 1.8;
-        }
-
-        footer {
-            background-color: #003e7e;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: #ffc107;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
+        .article-preview::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(transparent, white);
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>מאמרים - בלוג הייטק</h1>
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                    </svg>
+                    <h1 class="mr-3 text-2xl font-bold logo">טק-אינסייט</h1>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-indigo-600">דף הבית</a>
+                    <a href="articles.html" class="nav-link text-gray-700 hover:text-indigo-600">מאמרים</a>
+                    <a href="resources.html" class="nav-link text-gray-700 hover:text-indigo-600">קישורים</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-indigo-600">צור קשר</a>
+                </div>
+
+                <button class="md:hidden">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
     </header>
 
-    <nav>
-        <a href="index.html">דף הבית</a>
-        <a href="suppliers.html">ספקים בהייטק</a>
-        <a href="contact.html">יצירת קשר</a>
-    </nav>
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Hero Section -->
+        <section class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">ברוכים הבאים לטק-אינסייט</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                הבלוג המקצועי שלך לעולם ההייטק - מאמרים, טיפים וידע מעשי להצלחה בתעשייה
+            </p>
+        </section>
 
-    <div class="container">
-        <!-- מאמרים -->
-        <article>
-            <h2>הספקים שצריך לעבוד איתם בשלבים הראשונים בהקמת חברת הייטק</h2>
-            <p>
-                אחת מההחלטות החשובות ביותר שתיקח כל חברה חדשה היא אילו ספקים לבחור לשיתוף פעולה, במיוחד בשלבים הראשונים של הקמת החברה.
-                בשלב זה, אתה מחפש שותפים מקצועיים שיכולים להעניק לך את התמיכה הדרושה בצמיחה ובפיתוח.
-            </p>
-            <p>
-                אחד הספקים הראשונים שיכולים להיות קריטיים להצלחתך הוא **הספק המשפטי**. עורך דין המתמחה בתחום ההייטק והסטארטאפים יכול לעזור בהגדרת מבנה החברה, בהכנת הסכמים עם עובדים ומשקיעים ובחוזים עם לקוחות.
-            </p>
-            <p>
-                בנוסף, חשוב מאוד לבחור **ספקי שירותי IT** איכותיים. במיוחד בשלב הראשוני, תצטרך להקים תשתיות טכנולוגיות יציבות שיתמכו במערכות שלך ובצוות שלך, לכן כדאי לשקול ספקי שירותי ענן, אבטחת מידע, ושירותי מחשוב ענן.
-            </p>
-            <p>
-                **ספקי תוכנה ופיתוח** הם גם חיוניים מאוד, במיוחד אם אתה בונה את המוצר הטכנולוגי שלך. כדאי לשקול לעבוד עם חברת פיתוח שיכולה להוביל את תהליך הפיתוח בצורה מקצועית ויעילה.
-            </p>
-            <p>
-                בסופו של דבר, כל הספקים שאתה בוחר לעבוד איתם צריכים להיות גמישים, אמינים ובעלי ניסיון בעבודה עם חברות סטארטאפ. חשוב גם לשמור על קשר רציף ולוודא שיש תמיכה מלאה בכל שלב של התהליך.
-            </p>
-        </article>
-    </div>
+        <!-- Featured Articles -->
+        <section class="mb-16">
+            <h3 class="text-2xl font-bold mb-8">מאמרים מובילים</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Article Card 1 -->
+                <article class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/800/400" alt="startup" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">צעדים ראשונים בהקמת סטארט-אפ</h4>
+                        <p class="text-gray-600 mb-4">מדריך מקיף להקמת חברת הייטק מאפס - כל מה שצריך לדעת</p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium">קרא עוד ←</a>
+                    </div>
+                </article>
+                
+                <!-- Article Card 2 -->
+                <article class="card bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="/api/placeholder/800/400" alt="suppliers" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">ספקים מומלצים בתעשיית ההייטק</h4>
+                        <p class="text-gray-600 mb-4">סקירה מקיפה של ספקי שירותים חיוניים לחברות הייטק</p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium">קרא עוד ←</a>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-    <footer>
-        <p>© 2024 בלוג הייטק. כל הזכויות שמורות.</p>
+        <!-- Newsletter Signup -->
+        <section class="bg-indigo-600 text-white rounded-lg p-8 text-center">
+            <h3 class="text-2xl font-bold mb-4">הישארו מעודכנים</h3>
+            <p class="mb-6">הירשמו לניוזלטר שלנו לקבלת עדכונים ותכנים בלעדיים</p>
+            <form class="max-w-md mx-auto flex gap-4">
+                <input type="email" placeholder="כתובת אימייל" class="flex-1 px-4 py-2 rounded text-gray-900" dir="ltr">
+                <button type="submit" class="bg-white text-indigo-600 px-6 py-2 rounded font-medium hover:bg-gray-100">הרשמה</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">אודות</h4>
+                    <p>בלוג מקצועי המתמקד בתעשיית ההייטק הישראלית</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">ניווט מהיר</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-indigo-400">דף הבית</a></li>
+                        <li><a href="articles.html" class="hover:text-indigo-400">מאמרים</a></li>
+                        <li><a href="resources.html" class="hover:text-indigo-400">קישורים</a></li>
+                        <li><a href="contact.html" class="hover:text-indigo-400">צור קשר</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">עקבו אחרינו</h4>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="hover:text-indigo-400">
+                            <span class="sr-only">LinkedIn</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-indigo-400">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5 0-.278-.028-.556-.08-.83A7.72 7.72 0 0023 3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
