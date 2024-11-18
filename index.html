@@ -27,23 +27,6 @@
         header h1 {
             font-size: 3rem;
             margin: 0;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        header img {
-            height: 60px;
-            margin-top: 10px;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         nav {
@@ -69,9 +52,6 @@
         }
 
         .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
             max-width: 1200px;
             margin: 40px auto;
             padding: 10px;
@@ -80,25 +60,25 @@
         article {
             background: white;
             padding: 20px;
+            margin-bottom: 20px;
             border-radius: 12px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         article:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
         }
 
         article h2 {
             color: #005bb5;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-top: 0;
         }
 
         article p {
             color: #333;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         footer {
@@ -107,57 +87,84 @@
             text-align: center;
             padding: 20px;
             margin-top: 40px;
-            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        footer p {
-            margin: 0;
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
         }
 
-        /* אפקטים מתקדמים */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center/cover;
-            opacity: 0.1;
-            z-index: -1;
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .about, .contact {
+            background: #f0f0f0;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+        }
+
+        .about h2, .contact h2 {
+            color: #0073e6;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>בלוג הייטק</h1>
-        <img src="logo.png" alt="לוגו בלוג הייטק">
     </header>
 
     <nav>
-        <a href="#tips">טיפים לחברה חדשה</a>
-        <a href="#partners">עם מי לעבוד</a>
-        <a href="#warnings">ממה להיזהר</a>
+        <a href="#tips">מאמרים</a>
+        <a href="#about">עליי</a>
+        <a href="#resources">קישורים</a>
+        <a href="#contact">יצירת קשר</a>
     </nav>
 
     <div class="container">
+        <!-- מאמרים -->
         <article id="tips">
-            <h2>טיפים לפתיחת חברה חדשה</h2>
-            <p>הקמת חברה חדשה היא תהליך מרגש, אך דורש תכנון מדוקדק. התחילו עם מחקר שוק מעמיק, הגדירו חזון ברור והכינו תוכנית עסקית מפורטת.</p>
-            <p>אל תחששו להיעזר באנשי מקצוע בתחומים כמו פיננסים ומשפטים – הם יכולים לחסוך לכם זמן וכסף.</p>
+            <h2>איך להקים חברה מנצחת?</h2>
+            <p>
+                הקמת חברה מתחילה בחזון ברור. עליכם להבין מי קהל היעד, מה הבעיות שהוא מתמודד איתן ואיך תוכלו לפתור אותן טוב יותר מהמתחרים.
+                לא פחות חשוב – תכננו אסטרטגיה פיננסית שתתחשב בהוצאות, הכנסות והגדרת יעדים ריאליים.
+            </p>
+            <p>
+                בנוסף, הגדירו מיתוג ייחודי לחברה שלכם. עיצוב לוגו ומסר מבודל יכולים להעניק לכם יתרון תחרותי בשוק רווי.
+            </p>
         </article>
 
-        <article id="partners">
-            <h2>עם מי כדאי לעבוד?</h2>
-            <p>בחירת שותפים נכונים היא המפתח להצלחה. חפשו אנשים עם ניסיון משלים לשלכם ועם חזון משותף.</p>
-            <p>שיתוף פעולה עם אנשי טכנולוגיה, עיצוב, ושיווק יכול להאיץ את התפתחות המוצר שלכם.</p>
+        <article>
+            <h2>ממי כדאי להיזהר?</h2>
+            <p>
+                היזהרו משותפים לא אמינים שיכולים להוביל לאי יציבות פיננסית או משפטית. בצעו בדיקת רקע על כל שותף או עובד פוטנציאלי.
+                כמו כן, אל תחתמו על חוזים בלי ייעוץ משפטי מקצועי. חוזים גרועים הם מקור עיקרי לסכסוכים עסקיים.
+            </p>
         </article>
 
-        <article id="warnings">
-            <h2>ממה להיזהר כשפותחים חברה?</h2>
-            <p>שימו לב לא להיכנס לשוק רווי ללא ערך ייחודי אמיתי. השקיעו מאמצים בלהבין את הצרכים האמיתיים של הלקוחות שלכם.</p>
-            <p>תמיד הקפידו על שקיפות מול השותפים, המשקיעים והלקוחות שלכם – חוסר אמון יכול להפיל חברה במהירות.</p>
-        </article>
+        <!-- על עצמי -->
+        <div class="about" id="about">
+            <h2>עליי</h2>
+            <p>שמי [שמך], יזם בתחום ההייטק עם ניסיון של [מספר שנים] שנים. אני מתמחה בסטארטאפים, אסטרטגיה עסקית ובניית צוותים מנצחים. בבלוג הזה אני משתף תובנות וטיפים שיעזרו לכם להצליח בעולם ההייטק המורכב.</p>
+        </div>
+
+        <!-- קישורים -->
+        <div id="resources">
+            <h2>קישורים רלוונטיים</h2>
+            <ul>
+                <li><a href="https://www.techcrunch.com" target="_blank">TechCrunch</a> - חדשות הייטק</li>
+                <li><a href="https://www.cbinsights.com" target="_blank">CB Insights</a> - מידע על אקזיטים והשקעות</li>
+                <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a> - פלטפורמה עסקית</li>
+            </ul>
+        </div>
+
+        <!-- יצירת קשר -->
+        <div class="contact" id="contact">
+            <h2>יצירת קשר</h2>
+            <p>מוזמנים לפנות אליי בכל שאלה או הערה:</p>
+            <p>דוא"ל: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        </div>
     </div>
 
     <footer>
