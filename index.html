@@ -1,148 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High-Tech Finance Blog</title>
+    <title>בלוג הייטק</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
+            direction: rtl;
+            background: linear-gradient(to bottom, #f9f9f9, #e0e0e0);
         }
+
         header {
-            background-color: #4CAF50;
+            background-color: #0073e6;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 30px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
         }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header img {
+            height: 60px;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         nav {
-            background-color: #333;
-            overflow: hidden;
+            background-color: #005bb5;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: sticky;
+            top: 100px;
+            z-index: 1000;
         }
+
         nav a {
-            float: left;
-            display: block;
             color: white;
-            text-align: center;
-            padding: 14px 20px;
+            margin: 0 15px;
             text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
+
         nav a:hover {
-            background-color: #ddd;
-            color: black;
+            color: #ffc107;
         }
+
         .container {
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .content {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 10px;
         }
-        .post {
-            flex: 1 1 calc(33% - 20px);
+
+        article {
             background: white;
-            padding: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .post img {
-            max-width: 100%;
-            border-radius: 8px;
+
+        article:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
         }
+
+        article h2 {
+            color: #005bb5;
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+
+        article p {
+            color: #333;
+            line-height: 1.6;
+        }
+
         footer {
-            background-color: #333;
+            background-color: #003e7e;
             color: white;
             text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
-        .contact-form {
-            background: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 40px;
+            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
         }
-        .contact-form input, .contact-form textarea {
+
+        footer p {
+            margin: 0;
+        }
+
+        /* אפקטים מתקדמים */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .contact-form button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        .contact-form button:hover {
-            background-color: #45a049;
+            height: 100%;
+            background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>High-Tech Finance Blog</h1>
-        <p>Your ultimate guide to financial insights in the tech industry</p>
+        <h1>בלוג הייטק</h1>
+        <img src="logo.png" alt="לוגו בלוג הייטק">
     </header>
+
     <nav>
-        <a href="#about">About</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
+        <a href="#tips">טיפים לחברה חדשה</a>
+        <a href="#partners">עם מי לעבוד</a>
+        <a href="#warnings">ממה להיזהר</a>
     </nav>
+
     <div class="container">
-        <section id="about">
-            <h2>About</h2>
-            <p>Welcome to the High-Tech Finance Blog, where technology meets financial insights. Stay updated with the latest trends and strategies to grow your business and wealth in the tech world.</p>
-        </section>
-        <section id="blog">
-            <h2>Latest Posts</h2>
-            <div class="content">
-                <div class="post">
-                    <img src="https://via.placeholder.com/300" alt="Post 1">
-                    <h3>How AI is Transforming Financial Management</h3>
-                    <p>Explore the latest advancements in AI and how they are shaping the future of financial planning.</p>
-                </div>
-                <div class="post">
-                    <img src="https://via.placeholder.com/300" alt="Post 2">
-                    <h3>Top Investment Strategies in High-Tech Startups</h3>
-                    <p>Discover the best ways to invest in the rapidly growing tech industry.</p>
-                </div>
-                <div class="post">
-                    <img src="https://via.placeholder.com/300" alt="Post 3">
-                    <h3>Cryptocurrency and the Future of Tech</h3>
-                    <p>Learn how blockchain and cryptocurrency are revolutionizing the tech and finance sectors.</p>
-                </div>
-            </div>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <div class="contact-form">
-                <form action="https://example.com/submit" method="POST">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                    
-                    <button type="submit">Send</button>
-                </form>
-            </div>
-        </section>
+        <article id="tips">
+            <h2>טיפים לפתיחת חברה חדשה</h2>
+            <p>הקמת חברה חדשה היא תהליך מרגש, אך דורש תכנון מדוקדק. התחילו עם מחקר שוק מעמיק, הגדירו חזון ברור והכינו תוכנית עסקית מפורטת.</p>
+            <p>אל תחששו להיעזר באנשי מקצוע בתחומים כמו פיננסים ומשפטים – הם יכולים לחסוך לכם זמן וכסף.</p>
+        </article>
+
+        <article id="partners">
+            <h2>עם מי כדאי לעבוד?</h2>
+            <p>בחירת שותפים נכונים היא המפתח להצלחה. חפשו אנשים עם ניסיון משלים לשלכם ועם חזון משותף.</p>
+            <p>שיתוף פעולה עם אנשי טכנולוגיה, עיצוב, ושיווק יכול להאיץ את התפתחות המוצר שלכם.</p>
+        </article>
+
+        <article id="warnings">
+            <h2>ממה להיזהר כשפותחים חברה?</h2>
+            <p>שימו לב לא להיכנס לשוק רווי ללא ערך ייחודי אמיתי. השקיעו מאמצים בלהבין את הצרכים האמיתיים של הלקוחות שלכם.</p>
+            <p>תמיד הקפידו על שקיפות מול השותפים, המשקיעים והלקוחות שלכם – חוסר אמון יכול להפיל חברה במהירות.</p>
+        </article>
     </div>
+
     <footer>
-        <p>© 2024 High-Tech Finance Blog. All rights reserved.</p>
+        <p>© 2024 בלוג הייטק. כל הזכויות שמורות.</p>
     </footer>
 </body>
 </html>
